@@ -31,7 +31,7 @@ ipcMain.on("video:submit", (event, filePath)=>{
         }
         if(!metadata || !metadata.format){
             console.log("Metadata Error: ", metadata);
-            event.reply("Video:error", 'Invalid metadata');
+            event.reply("video:error", 'Invalid metadata');
             return;
         }
         const duration = metadata.format.duration;

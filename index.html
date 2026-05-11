@@ -6,11 +6,11 @@
 <body>
     <h1>Video Info App</h1>
     <button id="selectFile">Select a Video File</button>
-    <div id="results"></div>
+    <h2 id="results"></h2>
 </body>
 <script>
     const { dialog } = require("@electron/remote");
-    const { ipcRenderer } = require('electon');
+    const { ipcRenderer } = require('electron');
     document.getElementById("selectFile").addEventListener("click", async ()=>{
         const result = await dialog.showOpenDialog(
             {
@@ -32,10 +32,10 @@
     });
     ipcRenderer.on("video:durationAnalyzed", (event, duration)=>{
         document.getElementById("results").textContent = 
-        `Video Duration: ${duration} section`;
+        `Video Duration: ${duration} seconds`;
     });
     ipcRenderer.on("video:error", (event, error)=>{
-        document.getElementById("results".textContent) = 
+        document.getElementById("results").textContent = 
         `Error: ${error}`;
     });
 </script>
