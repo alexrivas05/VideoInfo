@@ -32,7 +32,7 @@
     });
     ipcRenderer.on("video:durationAnalyzed", (event, duration)=>{
         document.getElementById("results").textContent = 
-        `Video Duration: ${duration} seconds`;
+        `Alex's video was ${duration} seconds`;
     });
     ipcRenderer.on("video:error", (event, error)=>{
         document.getElementById("results").textContent = 
